@@ -8,7 +8,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("game v1")
 
 # Load background from my image
-background_image = pygame.image.load("background_example.PNG")  # Replace with your file
+background_image = pygame.image.load("background_example.PNG")  #to be changed later
 background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
 
 # Load bumblebee image
@@ -36,7 +36,7 @@ bumblebees = [
     Bumblebee(650, 150),
 ]
 
-# Popup spaceholder
+# Popup spaceholder --> will be mini games later, just for the sake of the demo
 popup_active = False
 popup_timer = 0
 
@@ -76,7 +76,7 @@ while running:
         popup_y = (HEIGHT - popup_height) // 2
 
         popup_surface = pygame.Surface((popup_width, popup_height))
-        popup_surface.fill((255, 255, 255))  # Dark gray
+        popup_surface.fill((255, 255, 255))  
 
         font = pygame.font.SysFont("Arial", 20, bold=True)
         text = font.render("spaceholder, minigame coming soon", True, (0, 0, 0))
