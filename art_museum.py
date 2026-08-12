@@ -184,18 +184,18 @@ class Painting:
 
 #create the 6 paintings (x, y, width, height)
 paintings = [
-    Painting("background_example.PNG", (174, 165, 102 , 123), "Painting One",
-             "This is a description of the first painting. Replace this with your own text about the artwork."),
-    Painting("background_example.PNG", (186, 327, 67, 145), "Painting Two",
-             "This is a description of the second painting. Replace this with your own text."),
-    Painting("background_example.PNG", (335, 173, 143, 80), "Painting Three",
-             "This is a description of the third painting. Replace this with your own text."),
-    Painting("background_example.PNG", (342, 303, 80, 85), "Painting Four",
-             "This is a description of the fourth painting. Replace this with your own text."),
-    Painting("background_example.PNG", (522, 355, 90, 90), "Painting Five",
-             "This is a description of the fifth painting. Replace this with your own text."),
-    Painting("background_example.PNG", (525, 210, 92, 103), "Painting Six",
-             "This is a description of the sixth painting. Replace this with your own text."),
+    Painting("mona_lisa.png", (174, 165, 102 , 123), "Mona Lisa (1519)",
+             "Probably the most famous portrait in the world, the Mona Lisa is known for its small, almost unreadable smile. Leonardo used extremely soft layers of paint to blur the outlines of her face, creating the impression that her expression changes when you look away and back again. The distant landscape behind her is also strange: it does not quite follow normal perspective, which gives the painting its dreamlike atmosphere."),
+    Painting("the_starry_night.png", (186, 327, 67, 145), "The starry night (1889)",
+             "Van Gogh painted The Starry Night while staying at the Saint-Paul-de-Mausole asylum in southern France. It shows a village under a dramatic, swirling sky, with stars that seem to vibrate and move. The view was inspired by what Van Gogh could see from his window, but it was not painted exactly as reality. Instead, the intense blues, yellows, and energetic brushstrokes turn the night sky into something emotional and almost alive."),
+    Painting("the_great_wave.png", (335, 173, 143, 80), "The Great Wave off Kanagawa (1831)",
+             "Despite often being called a painting, this image is actually a Japanese woodblock print. It shows a huge wave rising above small fishing boats, while Mount Fuji appears quietly in the distance. The contrast is part of what makes it so memorable: the wave looks enormous and dangerous, while the mountain seems calm and almost fragile. Hokusai’s print became influential far beyond Japan and inspired many European artists in the nineteenth century."),
+    Painting("the_garden.png", (342, 303, 80, 85), "The Garden of Earthly Delights (1505)",
+             "Bosch’s triptych is filled with strange animals, oversized fruit, unusual buildings, and figures doing things that are difficult to explain. The left panel shows paradise, the centre is crowded with human pleasures and temptations, and the right side becomes a dark anddisturbing vision of hell. It feels almost like an early fantasy world: every section contains small details that invite the viewer to stop, look closer, and invent their own interpretation."),
+    Painting("slaying_holofernes.png", (522, 355, 90, 90), "Judith Slaying Holofernes (1620)",
+             "This painting tells a violent story from the Bible: Judith kills the enemy general Holofernes in order to save her city. Artemisia Gentileschi presents the scene without trying to make it elegant or heroic. Judith and her servant are shown working together with determination, while Holofernes struggles beneath them. The painting is famous for its intensity and for the unusually powerful way it portrays its female characters."),
+    Painting("the_son_of_man.png", (525, 210, 92, 103), "The Son of Man (1964)",
+             "At first glance, this image seems simple: a man in a dark suit and bowler hat stands in front of a wall and the sea. But his face is hidden behind a floating green apple, making the portrait oddly unsettling. Magritte often used ordinary objects in impossible situations to challenge the viewer’s expectations. The painting suggests that even familiar things can remain mysterious when something small is placed in the way."),
 ]
 
 #which info popup is currently open
