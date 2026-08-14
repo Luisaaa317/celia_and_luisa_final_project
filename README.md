@@ -7,7 +7,7 @@ After the exhibition you'll be able to demonstrate your new knowledge in a quiz.
 As a reward for your efforts you'll get to visit our beautiful cafe afterwards. 
 Have fun!
 
-<img src="media/ticket_booth.PNG" width="300">
+<img src="media/ticket_booth.PNG" width="500">
 
 ### Installation
 
