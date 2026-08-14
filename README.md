@@ -38,14 +38,14 @@ CeliaJonen_LuisaLoddo_Art_Museum/
 ├── LICENSE
 ├── README.md
 ├── requirements.txt
-└── documentation.md (or documentation.pdf)
+└── documentation.pdf
 ```
 
 - `art_museum.py`: main loop of the game
 - `media/`: all images for backgrounds, paintings and the players character.
 - `LICENSE`: MIT License
 - `requirements.txt`: libraries needed for the game
-- `documentation.md/pdf`: includes
+- `documentation.pdf`: includes
   - Initial idea (intermediate demo)
   - Development process and challenges
   - Future improvements and known limitations
