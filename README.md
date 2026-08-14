@@ -2,6 +2,7 @@
 
 Have you ever wanted to visit an art museum that displays all the most famous paintings for free? 
 Come in and explore everything from Da Vincis worldfamous "Mona Lisa" to Vincent van Goghs "Starry Night".
+Just align the magnifying glass with the painting and press ENTER.
 After the exhibition you'll be able to demonstrate your new knowledge in a quiz. 
 As a reward for your efforts you'll get to visit our beautiful cafe afterwards. 
 Have fun!
