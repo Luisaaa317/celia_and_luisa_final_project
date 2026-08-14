@@ -50,6 +50,7 @@ current_background = background1
 button_visible = True # becomes false after 2nd background becomes visible
 visitor_visible = False #becomes true when 2nd background is visible
 exhibition_finished = False   # becomes true once exit button is clicked
+exhibition_intro_visible = False  # becomes true when background2 appears
 
 #states of keys pressed
 left_pressed = False
@@ -130,6 +131,45 @@ def wrap_text(text, font, max_width):
     lines.append(current_line)
     return lines
 
+# info window that explains game
+def draw_exhibition_intro_popup():
+
+    window_width, window_height = 620, 320
+    window_x = WIDTH // 2 - window_width // 2
+    window_y = HEIGHT // 2 - window_height // 2
+
+    #semi-transparent dark overlay behind the popup
+    overlay = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
+    overlay.fill((0, 0, 0, 150))
+    screen.blit(overlay, (0, 0))
+
+    #popup box
+    popup_rect = pygame.Rect(window_x, window_y, window_width, window_height)
+    pygame.draw.rect(screen, WHITE, popup_rect)
+    pygame.draw.rect(screen, BLACK, popup_rect, 3)
+
+    #title
+    title_surface = title_font.render("Welcome to the Exhibition Hall!", True, BLACK)
+    screen.blit(title_surface, (window_x + 20, window_y + 20))
+
+    #instructions
+    instructions = [
+        "Use the arrow keys to move around the hall.",
+        "Walk up to a painting, align the magnifying glass ",
+        "and press ENTER to",
+        "read information about it.",
+        "You must view all 6 paintings before you",
+        "can exit the museum and take the quiz.",
+    ]
+
+    for i, line in enumerate(instructions):
+        line_surface = info_font.render(line, True, BLACK)
+        screen.blit(line_surface, (window_x + 20, window_y + 70 + i * 33))
+
+    #close hint
+    hint_surface = info_font.render("Press enter or esc to start exploring!", True, (100, 100, 100))
+    screen.blit(hint_surface, (window_x + 20, window_y + window_height - 35))
+
 
 #create painting class
 class Painting:
@@ -205,7 +245,7 @@ paintings = [
 active_painting = None
 
 
-# create quiz for end
+# create quiz for ending game
 
 #multiple choice question class
 class QuizQuestion:
@@ -382,6 +422,7 @@ while running:
                 button_visible = False
                 current_background = background2
                 visitor_visible = True
+                exhibition_intro_visible = True  # show the intro popup
 
             #check if the exit museum button was clicked --> now starts the quiz
             all_viewed = all(p.viewed for p in paintings)
@@ -392,7 +433,7 @@ while running:
                 score = 0
                 user_text_input = ""
 
-            #clicking an answer during the quiz (for multiple choice questions)
+            #clicking an answer during the quiz --> for multiple choice questions
             if quiz_active:
                 current_q = quiz_questions[current_question_index]
                 if isinstance(current_q, QuizQuestion):
@@ -423,6 +464,12 @@ while running:
 
 #if the visitor moves
         if event.type == pygame.KEYDOWN:
+
+            # close the exhibition intro popup when enter or esc is pressed
+            if exhibition_intro_visible:
+                if event.key in (pygame.K_RETURN, pygame.K_ESCAPE):
+                    exhibition_intro_visible = False
+                continue  # block all other key actions while intro popup is open
 
             #typing for the free-text quiz question
             if quiz_active:
@@ -481,7 +528,8 @@ while running:
                 down_pressed = False
 
     #visitor moves only if no info window is open, no quiz active, and exhibition isn't finished
-    if visitor_visible and active_painting is None and not exhibition_finished and not quiz_active and not quiz_result_active:
+    if visitor_visible and active_painting is None and not exhibition_finished and not quiz_active \
+            and not quiz_result_active and not exhibition_intro_visible:
         if left_pressed:
             visitor.animate("left")
         if right_pressed:
@@ -511,7 +559,8 @@ while running:
 
     #once all paintings have been viewed the exit button appears
     all_viewed = all(p.viewed for p in paintings)
-    if all_viewed and active_painting is None and not exhibition_finished and not quiz_active and not quiz_result_active:
+    if all_viewed and active_painting is None and not exhibition_finished and not quiz_active \
+            and not quiz_result_active and not exhibition_intro_visible:
         pygame.draw.rect(screen, RED, exit_button_rect)
         exit_text = small_font.render("Exit Museum", True, WHITE)
         exit_text_rect = exit_text.get_rect(center=exit_button_rect.center)
@@ -520,6 +569,10 @@ while running:
     #draw the info window if a painting is active
     if active_painting is not None:
         active_painting.draw_info_window()
+
+    #draw the exhibition intro popup 
+    if exhibition_intro_visible:
+        draw_exhibition_intro_popup()
 
     #draw the current quiz question
     if quiz_active:
