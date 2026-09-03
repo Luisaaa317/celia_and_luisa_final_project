@@ -18,13 +18,13 @@ RED = (200, 0, 0)
 GRAY = (230, 230, 230)
 
 #create backgrounds and make them fit the window
-background1 = pygame.image.load("ticket_booth.PNG").convert()
+background1 = pygame.image.load("ticket_booth_final.PNG").convert()
 background1 = pygame.transform.scale(background1, (WIDTH, HEIGHT))
 
 background2 = pygame.image.load("exhibition_hall_final.JPG").convert()
 background2 = pygame.transform.scale(background2, (WIDTH, HEIGHT))
 
-background3 = pygame.image.load("background_example.PNG").convert()
+background3 = pygame.image.load("cafe.png").convert()
 background3 = pygame.transform.scale(background3, (WIDTH, HEIGHT))
 
 #buy ticket button setup
